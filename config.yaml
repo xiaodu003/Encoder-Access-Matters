@@ -1,0 +1,50 @@
+{
+  "datasets": ["MOSI", "SIMS_V1", "MOSEI"],
+  "protocol": {"delete_rates": [0.2, 0.5], "mask_repeats": 8},
+  "experiments": {
+    "B0_TEXT": {"arms": ["POST"], "seeds": [2026]},
+    "B1_FUSION": {"arms": ["CLEAN", "POST", "PRE", "MIX"], "seeds": [2026, 2027, 2028]},
+    "B2_RATE": {"arms": ["POST", "PRE"], "seeds": [2026]},
+    "ALMT_FEATURE": {"arms": ["POST", "PRE"], "seeds": [2026, 2027, 2028]}
+  },
+  "runtime": {
+    "input_root": "xxxx",
+    "output_root": "./runs",
+    "dataset_paths": {
+      "MOSI": {"pkl": "", "csv": ""},
+      "SIMS_V1": {"pkl": "", "csv": ""},
+      "MOSEI": {"pkl": "", "csv": ""}
+    },
+    "bert_paths": {
+      "MOSI": "xxxx",
+      "SIMS_V1": "xxxx",
+      "MOSEI": "xxxx"
+    },
+    "workers": 0,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "bert_batch_size": 32,
+    "epochs": 40,
+    "min_epochs": 12,
+    "patience": 8,
+    "warmup_epochs": 4,
+    "learning_rate": 0.001,
+    "almt_learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "use_amp": true,
+    "gpu_hour_limit": 90,
+    "allocated_gpu_count": 0,
+    "mask_seed": 2026,
+    "clean_probability": 0.5
+  },
+  "storage": {"reserve_gib": 1, "result_headroom_gib": 3, "working_limit_gib": 64},
+  "evaluation": {
+    "split": "valid",
+    "allow_test": false,
+    "suites": ["standard", "operators", "new_masks", "blocks"],
+    "new_mask_seed": 4311,
+    "replacement_draws": 3,
+    "bootstrap_replicates": 10000
+  }
+}
