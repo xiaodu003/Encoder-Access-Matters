@@ -2,9 +2,9 @@
   "datasets": ["MOSI", "SIMS_V1", "MOSEI"],
   "protocol": {"delete_rates": [0.2, 0.5], "mask_repeats": 8},
   "experiments": {
-    "B0_TEXT": {"arms": ["POST"], "seeds": [2026]},
+    "B0_TEXT": {"arms": ["POST"], "seeds": [2026, 2027, 2028]},
     "B1_FUSION": {"arms": ["CLEAN", "POST", "PRE", "MIX"], "seeds": [2026, 2027, 2028]},
-    "B2_RATE": {"arms": ["POST", "PRE"], "seeds": [2026]},
+    "B2_RATE": {"arms": ["POST", "PRE"], "seeds": [2026, 2027, 2028]},
     "ALMT_FEATURE": {"arms": ["POST", "PRE"], "seeds": [2026, 2027, 2028]}
   },
   "runtime": {
@@ -34,7 +34,7 @@
     "grad_clip": 1.0,
     "use_amp": true,
     "gpu_hour_limit": 90,
-    "allocated_gpu_count": 0,
+    "allocated_gpu_count": 2,
     "mask_seed": 2026,
     "clean_probability": 0.5
   },
